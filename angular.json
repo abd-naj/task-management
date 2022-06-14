@@ -30,8 +30,8 @@
         }
       },
       "root": "",
-      "sourceRoot": "src", 
-      "prefix": "app", 
+      "sourceRoot": "src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -45,12 +45,12 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [ 
+            "styles": [
               "src/styles.scss"
             ],
             "scripts": [],
-            "allowedCommonJsDependencies": [ 
-              "leaflet-map", 
+            "allowedCommonJsDependencies": [
+              "leaflet-map",
               "dragula",
               "clone-deep"
             ],
@@ -141,5 +141,8 @@
         }
       }
     }
-  }  
+  },
+  "cli": {
+    "analytics": "b6cc83ea-a605-42bc-9b2e-9e9959045fe2"
+  }
 }

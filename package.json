@@ -17,6 +17,7 @@
     "@angular/common": "14.0.1",
     "@angular/compiler": "14.0.1",
     "@angular/core": "14.0.1",
+    "@angular/fire": "^7.4.1",
     "@angular/flex-layout": "12.0.0-beta.35",
     "@angular/forms": "14.0.1",
     "@angular/material": "14.0.1",
@@ -42,17 +43,17 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "14.0.1",
-    "@angular/cli": "14.0.1",
+    "@angular/cli": "^14.0.1",
     "@angular/compiler-cli": "14.0.1",
     "@angular/language-service": "14.0.1",
     "@types/hammerjs": "2.0.40",
     "@types/jasmine": "3.10.2",
     "@types/jasminewd2": "2.0.10",
     "@types/node": "16.11.7",
-    "codelyzer": "6.0.2",
+    "codelyzer": "^0.0.28",
     "jasmine-core": "3.10.1",
     "jasmine-spec-reporter": "7.0.0",
-    "karma": "6.3.8",
+    "karma": "^6.4.0",
     "karma-chrome-launcher": "3.1.0",
     "karma-cli": "2.0.0",
     "karma-coverage-istanbul-reporter": "3.0.3",
@@ -61,5 +62,10 @@
     "protractor": "7.0.0",
     "ts-node": "10.4.0",
     "typescript": "4.7.3"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.",
+  "main": "karma.conf.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
