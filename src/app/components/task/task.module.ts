@@ -5,8 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { TasksPreviewComponent } from './tasks-preview/tasks-preview.component';
 import { CrudTaskComponent } from './crud-task/crud-task.component';
-import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
-import { TaskDetailsComponent } from './task-details/task-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'TasksPreview', pathMatch: 'full' },
@@ -25,7 +23,6 @@ export const routes: Routes = [
   declarations: [
     TasksPreviewComponent,
     CrudTaskComponent,
-    TaskDetailsComponent
   ],
   exports: [
     TasksPreviewComponent,

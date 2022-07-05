@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {TaskService} from "../task.service";
 import {Task} from "../task";
 import {map} from "rxjs/operators";
+import {MatDialog} from "@angular/material/dialog";
+import {CrudTaskComponent} from "../crud-task/crud-task.component";
 
 @Component({
   selector: 'app-tasks-preview',
@@ -14,7 +16,8 @@ export class TasksPreviewComponent implements OnInit {
   currentTask?: Task;
   currentIndex = -1;
   title = '';
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,
+              private dialog: MatDialog) {}
   ngOnInit(): void {
     this.retrieveTutorials();
   }
@@ -24,10 +27,13 @@ export class TasksPreviewComponent implements OnInit {
     this.retrieveTutorials();
   }
   retrieveTutorials(): void {
-    console.log(this.taskService.getAll());
+    this.taskService.getAll().subscribe(tasks => {
+      this.tasks = tasks;
+      console.log(tasks)
+    })
   }
-  setActiveTutorial(tutorial: Task, index: number): void {
-    this.currentTask = tutorial;
+  setActiveTutorial(task: Task, index: number): void {
+    this.currentTask = task;
     this.currentIndex = index;
   }
   removeAllTutorials(): void {
@@ -36,4 +42,16 @@ export class TasksPreviewComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
+  openTask(task?, index?) {
+    const dialogRef = this.dialog.open(CrudTaskComponent, {
+      width: '400px',
+      height: '300px',
+      data: {task, index},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.refreshList();
+      // this.animal = result;
+    });
+  }
 }

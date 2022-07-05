@@ -8,13 +8,13 @@ export class AppSettings {
         true,           //loadingSpinner
         true,           //fixedHeader
         true,           //sidenavIsOpened
-        true,           //sidenavIsPinned  
-        true,           //sidenavUserBlock 
+        true,           //sidenavIsPinned
+        true,           //sidenavUserBlock
         'vertical',     //horizontal , vertical
         'default',      //default, compact, mini
         'indigo-light', //indigo-light, teal-light, red-light, blue-dark, green-dark, pink-dark
         false,          // true = rtl, false = ltr
-        true            // true = has footer, false = no footer
+        false            // true = has footer, false = no footer
     )
 }
 

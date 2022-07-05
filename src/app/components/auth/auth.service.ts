@@ -7,6 +7,7 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import {User} from "./user";
+import {UserInfo} from "../users/user.model";
 @Injectable({
   providedIn: 'root',
 })
@@ -112,14 +113,14 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-    };
-    return userRef.set(userData, {
+    const userData: UserInfo = new UserInfo();
+      userData.uid = user.uid;
+      userData.email = user.email;
+      userData.displayName = user.displayName;
+      userData.photoURL = user.photoURL;
+      userData.emailVerified = user.emailVerified;
+      console.log(userData)
+    return userRef.set(JSON.parse(JSON.stringify(userData)), {
       merge: true,
     });
   }
