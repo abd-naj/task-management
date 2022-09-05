@@ -1,8 +1,7 @@
 import {User} from "../auth/user";
 
 export class UserInfo extends User{
-  username: string;
-  password: string;
+  // username: string;
   profile: UserProfile;
   work: UserWork;
   contacts: UserContacts;
@@ -10,8 +9,7 @@ export class UserInfo extends User{
   settings: UserSettings;
   constructor() {
     super();
-    this.username = '';
-    this.password = '';
+    // this.username = '';
     this.profile = new UserProfile();
     this.work = new UserWork();
     this.contacts = new UserContacts();
@@ -22,7 +20,7 @@ export class UserInfo extends User{
 export class UserProfile {
   name: string;
   surname: string;
-  birthday: Object;
+  birthday: any;
   gender: string;
   image: string;
   constructor() {
@@ -46,11 +44,11 @@ export class UserWork {
 }
 
 export class UserContacts{
-  email: string;
+  contactEmail: string;
   phone: string;
   address: string;
   constructor() {
-    this.email = '';
+    this.contactEmail = '';
     this.phone = '';
     this.address = '';
   }

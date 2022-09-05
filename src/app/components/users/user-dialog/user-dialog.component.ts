@@ -14,10 +14,11 @@ export class UserDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<UserDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public user: UserInfo,
               public fb: UntypedFormBuilder) {
+    user.profile.birthday = new Date(user.profile.birthday.seconds * 1000);
     this.form = this.fb.group({
       uid: null,
-      username: [null, Validators.compose([Validators.required, Validators.minLength(5)])],
-      password: [null, Validators.compose([Validators.required, Validators.minLength(6)])],
+      displayName: null,
+      email: [null, Validators.compose([Validators.required, Validators.minLength(5)])],
       profile: this.fb.group({
         name: null,
         surname: null,
@@ -31,7 +32,7 @@ export class UserDialogComponent implements OnInit {
         salary: null
       }),
       contacts: this.fb.group({
-        email: null,
+        contactEmail: null,
         phone: null,
         address: null
       }),
@@ -60,7 +61,11 @@ export class UserDialogComponent implements OnInit {
   }
 
   close(): void {
+    this.user.profile.birthday = {seconds: (new Date(this.form.controls.profile.get('birthday').value)?.getTime() /1000) || 0};
     this.dialogRef.close();
   }
 
+  save() {
+    this.dialogRef.close(this.form.value)
+  }
 }

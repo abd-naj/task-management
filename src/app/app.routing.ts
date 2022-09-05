@@ -27,7 +27,7 @@ export const routes: Routes = [
             // { path: 'dynamic-menu', loadChildren: () => import('./pages/dynamic-menu/dynamic-menu.module').then(m => m.DynamicMenuModule), data: { breadcrumb: 'Dynamic Menu' }  },
             // { path: 'profile', loadChildren: () => import ('./pages/profile/profile.module').then(m => m.ProfileModule), data: { breadcrumb: 'Profile' } },
             { path: 'auth', loadChildren: () => import ('./components/auth/auth.module').then(m => m.AuthModule), data: { breadcrumb: 'auth' } },
-            { path: 'task', loadChildren: () => import ('./components/task/task.module').then(m => m.TaskModule), data: { breadcrumb: 'task' } , canActivate: [FireBaseAuthGuard] },
+            { path: 'task', loadChildren: () => import ('./components/task/task.module').then(m => m.TaskModule), data: { breadcrumb: 'task' }  },
             // { path: 'blank', component: BlankComponent, data: { breadcrumb: 'Blank page' } },
             // { path: 'search', component: SearchComponent, data: { breadcrumb: 'Search' } }
         ]

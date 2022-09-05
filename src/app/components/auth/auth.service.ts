@@ -117,7 +117,7 @@ export class AuthService {
       userData.uid = user.uid;
       userData.email = user.email;
       userData.displayName = user.displayName;
-      userData.photoURL = user.photoURL;
+      userData.profile.image = user.photoURL;
       userData.emailVerified = user.emailVerified;
       console.log(userData)
     return userRef.set(JSON.parse(JSON.stringify(userData)), {

@@ -18,8 +18,8 @@ export class UsersService {
       return this.afs.collection('users').snapshotChanges().pipe(
         map(actions => actions.map(a => {
           const data = a.payload.doc.data() as UserInfo;
-          const id = a.payload.doc.id;
-          return { id, ...data };
+          // const id = a.payload.doc.id;
+          return { ...data };
         }))
       )
     }
@@ -28,9 +28,8 @@ export class UsersService {
       return this.afs.collection('users').add(JSON.parse(JSON.stringify(user)));
     }
 
-    updateUser(key: string, user:UserInfo){
-    console.log(key)
-      this.itemDoc = this.afs.doc<UserInfo>(`users/${key}`);
+    updateUser(user:UserInfo){
+      this.itemDoc = this.afs.doc<UserInfo>(`users/${user.uid}`);
       return this.itemDoc.update(user)
     }
 

@@ -41,7 +41,7 @@ export class UsersComponent implements OnInit {
     public updateUser(user:UserInfo){
         // this.usersService.updateUser(user).subscribe(user => this.getUsers());
       console.log(user);
-      this.usersService.updateUser(user.uid, user);
+      this.usersService.updateUser(user);
     }
     public deleteUser(user:UserInfo){
        // this.usersService.deleteUser(user.id).subscribe(user => this.getUsers());
@@ -61,7 +61,11 @@ export class UsersComponent implements OnInit {
 
     public openUserDialog(user){
         let dialogRef = this.dialog.open(UserDialogComponent, {
-            data: user
+            data: user,
+          height: '371px',
+          width: '570px',
+          hasBackdrop: true,
+          disableClose: true
         });
 
         dialogRef.afterClosed().subscribe(user => {
@@ -71,4 +75,8 @@ export class UsersComponent implements OnInit {
         });
     }
 
+  changeUserStatus(user: UserInfo) {
+    user.settings.isDeleted = !user.settings.isDeleted;
+    this.usersService.updateUser(user);
+  }
 }
