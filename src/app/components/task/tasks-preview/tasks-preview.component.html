@@ -1,0 +1,53 @@
+<div fxLayout="row wrap">
+  <h2 fxFlex="75">tasks List</h2>
+  <div fxFlex="25">
+    <button mat-raised-button color="primary" class="w-100" (click)="openTask()">
+      <mat-icon>add</mat-icon>
+      &nbsp; Add Task
+    </button>
+  </div>
+
+  <div fxFlex="100" class="flex-p">
+    <mat-card class="p-0" fxLayout="row wrap" fxFlex="100">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center"
+           style="padding: 0 16px; height: 40px" class="bg-primary">
+        <div fxFlex="25">title</div>
+        <div fxFlex="20">Assign To</div>
+        <div fxFlex="35">description</div>
+        <div fxFlex="10">status</div>
+        <div fxFlex="10">published</div>
+        <div fxFlex="10">#</div>
+      </div>
+      <mat-list role="list" fxFlex="100">
+        <mat-list-item *ngFor="let task of tasks; let i = index; odd as status"
+                       role="listitem" [style.background]="status? '#e0e0e0' : ''">
+          <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center" >
+            <div fxFlex="25">{{task.title}}</div>
+            <div fxFlex="20">{{task.assignTo?.name}}</div>
+            <div fxFlex="35">{{task.description}}</div>
+            <div fxFlex="10">{{task.status?.text}}</div>
+            <div fxFlex="10">{{task.published}}</div>
+            <div fxFlex="10">
+              <button mat-icon-button color="primary" (click)="openTask(task, i)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentTask">
+    <!--  <app-task-details
+        (refreshList)="refreshList()"
+        [task]="currentTask"
+      ></app-task-details>-->
+    </div>
+    <div *ngIf="!currentTask">
+      <br/>
+      <p>Please click on a Tutorial...</p>
+    </div>
+  </div>
+</div>
+

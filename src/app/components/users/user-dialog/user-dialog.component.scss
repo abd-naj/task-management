@@ -1,0 +1,22 @@
+:host {
+  .user-form {
+    height: 258px;
+    .form-field-outer {
+      width: 370px;
+    }
+
+    .mat-radio-button {
+      margin-right: 12px;
+    }
+  }
+  ::ng-deep .mat-dialog-content {
+    margin: 0 !important;
+  }
+  ::ng-deep .mat-tab-label {
+    min-width: 100px !important;
+  }
+  .mat-dialog-title{
+    background: whitesmoke;
+    border-bottom: 1px solid gray;
+  }
+}
