@@ -2,13 +2,13 @@ export const environment = {
   production: true,
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   firebaseConfig: {
-    apiKey: "AIzaSyDT-XqS4ewjt7QKrWXghal4ti-fPCmJkhw",
-    authDomain: "my-project-1513066034878.firebaseapp.com",
-    databaseURL: "https://my-project-1513066034878-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "my-project-1513066034878",
-    storageBucket: "my-project-1513066034878.appspot.com",
-    messagingSenderId: "679364819889",
-    appId: "1:679364819889:web:47c7bb73871094a600db90",
-    measurementId: "G-1VLHTG58TP"
+    apiKey: 'AIzaSyCiFzYPwBxLPM4uA6_iHaH6uoHG63VnehU',
+    authDomain: 'eurocloud-landing.firebaseapp.com',
+    databaseURL: 'https://eurocloud-landing.firebaseio.com',
+    projectId: 'eurocloud-landing',
+    storageBucket: 'eurocloud-landing.appspot.com',
+    messagingSenderId: '179056160828',
+    appId: '1:179056160828:web:195a968224869d42cb9339',
+    measurementId: 'G-VM2PF2HBPJ'
   }
 };

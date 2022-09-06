@@ -13,7 +13,7 @@ export const routes: Routes = [
         path: '',
         component: PagesComponent, children: [
             { path: '', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule), data: { breadcrumb: 'Dashboard' } , canActivate: [FireBaseAuthGuard] },
-            { path: 'users', loadChildren: () => import('./components/users/users.module').then(m => m.UsersModule), data: { breadcrumb: 'Users' } },
+            { path: 'subdomain', loadChildren: () => import('./components/subdomains/subdomains.module').then(m => m.SubdomainsModule), data: { breadcrumb: 'Users' } },
             // { path: 'ui', loadChildren: () => import('./pages/ui/ui.module').then(m => m.UiModule), data: { breadcrumb: 'UI' } },
             // { path: 'form-controls', loadChildren: () => import('./pages/form-controls/form-controls.module').then(m => m.FormControlsModule), data: { breadcrumb: 'Form Controls' } },
             // { path: 'tables', loadChildren: () => import('./pages/tables/tables.module').then(m => m.TablesModule), data: { breadcrumb: 'Tables' } },

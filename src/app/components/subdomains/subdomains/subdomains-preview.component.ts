@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import {TaskService} from "../task.service";
-import {Task} from "../task";
+import {SubdomainsService} from "../subdomains.service";
+import {Subdomain} from "../subdomains";
 import {map} from "rxjs/operators";
 import {MatDialog} from "@angular/material/dialog";
-import {CrudTaskComponent} from "../crud-task/crud-task.component";
+import {CrudSubdomainsComponent} from "../crud-subdomains/crud-subdomains.component";
 
 @Component({
   selector: 'app-subdomains',
-  templateUrl: './tasks-preview.component.html',
-  styleUrls: ['./tasks-preview.component.scss']
+  templateUrl: './subdomains-preview.component.html',
+  styleUrls: ['./subdomains-preview.component.scss']
 })
-export class TasksPreviewComponent implements OnInit {
+export class SubdomainsPreviewComponent implements OnInit {
 
-  tasks?: Task[];
-  currentTask?: Task;
+  tasks?: Subdomain[];
+  currentTask?: Subdomain;
   currentIndex = -1;
   title = '';
-  constructor(private taskService: TaskService,
+  constructor(private taskService: SubdomainsService,
               private dialog: MatDialog) {}
   ngOnInit(): void {
     this.retrieveTutorials();
@@ -32,7 +32,7 @@ export class TasksPreviewComponent implements OnInit {
       console.log(tasks)
     })
   }
-  setActiveTutorial(task: Task, index: number): void {
+  setActiveTutorial(task: Subdomain, index: number): void {
     this.currentTask = task;
     this.currentIndex = index;
   }
@@ -43,9 +43,9 @@ export class TasksPreviewComponent implements OnInit {
   }
 
   openTask(task?, index?) {
-    const dialogRef = this.dialog.open(CrudTaskComponent, {
-      width: '400px',
-      height: '300px',
+    const dialogRef = this.dialog.open(CrudSubdomainsComponent, {
+      width: '500px',
+      height: '456px',
       data: {task, index},
     });
 

@@ -44,10 +44,6 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {environment} from "../environments/environment";
-import { SignInComponent } from './components/auth/sign-in/sign-in.component';
-import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
 
 @NgModule({
   imports: [
@@ -70,7 +66,7 @@ import { VerifyEmailComponent } from './components/auth/verify-email/verify-emai
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule,
+    AngularFireDatabaseModule
   ],
   declarations: [
     AppComponent,
@@ -92,7 +88,7 @@ import { VerifyEmailComponent } from './components/auth/verify-email/verify-emai
   providers: [
     AppSettings,
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
-    { provide: OverlayContainer, useClass: CustomOverlayContainer }
+    { provide: OverlayContainer, useClass: CustomOverlayContainer },
   ],
   bootstrap: [AppComponent]
 })

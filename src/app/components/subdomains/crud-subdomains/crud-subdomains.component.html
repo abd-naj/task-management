@@ -1,0 +1,98 @@
+<div fxLayout="row wrap">
+  <mat-toolbar fxLayout="row" fxFlex="100">
+    <div fxFlex="40">{{task.subdomain}}</div>
+    <div fxFlex="40"></div>
+    <div fxFlex="20" (click)="dialogRef.close()" fxLayoutAlign="end center"><mat-icon>close</mat-icon></div>
+  </mat-toolbar>
+
+  <div *ngIf="!submitted" fxLayout="row wrap"  fxFlex="100" style="height: 340px">
+    <div fxFlex="100">
+      <mat-form-field class="w-100">
+        <mat-label>subdomain name</mat-label>
+        <input matInput type="text" required
+          [(ngModel)]="task.subdomain"/>
+      </mat-form-field>
+    </div>
+    <div fxFlex="100">
+      <mat-form-field  class="w-100">
+        <mat-label>text1</mat-label>
+        <input matInput required
+               [(ngModel)]="task.text1"/>
+      </mat-form-field>
+    </div>
+    <div fxFlex="100">
+      <mat-form-field  class="w-100">
+        <mat-label>text2</mat-label>
+        <input matInput required
+               [(ngModel)]="task.text2"/>
+      </mat-form-field>
+    </div>
+    <div fxFlex="100">
+      <mat-form-field  class="w-100">
+        <mat-label>text3</mat-label>
+        <input matInput required
+               [(ngModel)]="task.text3"/>
+      </mat-form-field>
+    </div>
+    <div fxFlex="100">
+      <mat-form-field>
+        <input matInput [ngxMatColorPicker]="picker" [formControl]="colorCtr">
+        <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+        <ngx-mat-color-picker #picker [touchUi]="false" [color]="color"></ngx-mat-color-picker>
+      </mat-form-field>
+    </div>
+    <div fxFlex="50">
+        <mat-label>image1</mat-label>
+        <input type="file"  (change)="fileChangeEvent($event, 0)" class="fileInputProfile">
+        <div class="img-space">
+
+          <ng-container *ngIf="isImageSaved[0]">
+            <img [src]="cardImageBase64[0]" />
+          </ng-container>
+<!--          <ng-template #elseTemplate>-->
+
+<!--            <img src="assets/placeholder.png" class="img-responsive">-->
+<!--          </ng-template>-->
+
+        </div>
+    </div>
+
+    <div fxFlex="50">
+        <mat-label>image2</mat-label>
+        <input  type="file" (change)="fileChangeEvent($event, 1)" class="fileInputProfile">
+        <div class="img-space">
+          <ng-container *ngIf="isImageSaved[1]">
+            <img [src]="cardImageBase64[1]" />
+          </ng-container>
+        </div>
+    </div>
+    <p fxFlex="100" *ngIf="message">{{ message }}</p>
+  </div>
+  <div fxFlex="100" *ngIf="!task.id">
+    <button mat-raised-button type="button" color="primary" (click)="saveTutorial()" class="w-100">save</button>
+  </div>
+  <div fxFlex="100" *ngIf="task.id" fxLayout="row" fxLayoutAlign="space-between center">
+   <!-- <button mat-raised-button color="primary" type="button" *ngIf="task.published"
+            (click)="updatePublished()">
+      UnPublish
+    </button>
+    <button mat-raised-button color="primary" type="button" *ngIf="!task.published"
+            (click)="updatePublished()" >
+      Publish
+    </button>-->
+    <button mat-raised-button color="warn" type="button" (click)="deleteTutorial()">
+      Delete
+    </button>
+    <button mat-raised-button color="primary"  type="button" (click)="updateTutorial()">
+      Update
+    </button>
+  </div>
+  <!--<div fxFlex="100" *ngIf="!task.id">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>-->
+  <div *ngIf="submitted" fxFlex="100">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newTutorial()">Add</button>
+  </div>
+</div>
